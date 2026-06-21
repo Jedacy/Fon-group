@@ -8,6 +8,7 @@
     "build": "tsc -b && vite build",
     "lint": "eslint .",
     "encode:home-video": "node scripts/encode-home-video.mjs",
+    "optimize:images": "node scripts/optimize-images.mjs",
     "preview": "vite preview"
   },
   "dependencies": {

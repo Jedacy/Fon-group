@@ -1,29 +1,29 @@
 import { ExternalLink } from "lucide-react";
 import { motion } from "motion/react";
-import appSinarmasLogo from "../../assets/Partners/APP SINARMAS.png";
-import belimpexLogo from "../../assets/Partners/Belimpex.png";
-import bomoLogo from "../../assets/Partners/Bomo.png";
-import bobstLogo from "../../assets/Partners/Bobst.png";
-import bwPapersystemsLogo from "../../assets/Partners/BW Papersystems.png";
-import elofHanssonLogo from "../../assets/Partners/Elof Hansson.png";
-import esswellLogo from "../../assets/Partners/Eswell.png";
-import firnLogo from "../../assets/Partners/FIRN.png";
-import fortexLogo from "../../assets/Partners/Fortex.png";
-import group153Logo from "../../assets/Partners/Group 153.png";
-import heidelbergLogo from "../../assets/Partners/Heidelberg.png";
-import htiLogo from "../../assets/Partners/Hti.png";
-import ifpLogo from "../../assets/Partners/ifpcorp 1.png";
-import internationalPaperLogo from "../../assets/Partners/International Paper.png";
-import roxcelLogo from "../../assets/Partners/Logo-Roxcel-rgb-auf-dunklem-hintergrund 1.png";
-import manucharLogo from "../../assets/Partners/Manuchar.png";
-import mmLogo from "../../assets/Partners/MM.png";
-import navigatorLogo from "../../assets/Partners/Navigator.png";
-import plastyleniaLogo from "../../assets/Partners/Plastylenia.png";
-import sappiLogo from "../../assets/Partners/Sappi.png";
-import tcyLogo from "../../assets/Partners/tcy-logo_2023_-_1_ 1.png";
-import thoscoLogo from "../../assets/Partners/THOSCO.png";
-import tuniseOuateLogo from "../../assets/Partners/Tunise Ouate.png";
-import valmetLogo from "../../assets/Partners/valmet_logo 1.png";
+import appSinarmasLogo from "../../assets/optimized/Partners/APP SINARMAS.webp";
+import belimpexLogo from "../../assets/optimized/Partners/Belimpex.webp";
+import bomoLogo from "../../assets/optimized/Partners/Bomo.webp";
+import bobstLogo from "../../assets/optimized/Partners/Bobst.webp";
+import bwPapersystemsLogo from "../../assets/optimized/Partners/BW Papersystems.webp";
+import elofHanssonLogo from "../../assets/optimized/Partners/Elof Hansson.webp";
+import esswellLogo from "../../assets/optimized/Partners/Eswell.webp";
+import firnLogo from "../../assets/optimized/Partners/FIRN.webp";
+import fortexLogo from "../../assets/optimized/Partners/Fortex.webp";
+import group153Logo from "../../assets/optimized/Partners/Group 153.webp";
+import heidelbergLogo from "../../assets/optimized/Partners/Heidelberg.webp";
+import htiLogo from "../../assets/optimized/Partners/Hti.webp";
+import ifpLogo from "../../assets/optimized/Partners/ifpcorp 1.webp";
+import internationalPaperLogo from "../../assets/optimized/Partners/International Paper.webp";
+import roxcelLogo from "../../assets/optimized/Partners/Logo-Roxcel-rgb-auf-dunklem-hintergrund 1.webp";
+import manucharLogo from "../../assets/optimized/Partners/Manuchar.webp";
+import mmLogo from "../../assets/optimized/Partners/MM.webp";
+import navigatorLogo from "../../assets/optimized/Partners/Navigator.webp";
+import plastyleniaLogo from "../../assets/optimized/Partners/Plastylenia.webp";
+import sappiLogo from "../../assets/optimized/Partners/Sappi.webp";
+import tcyLogo from "../../assets/optimized/Partners/tcy-logo_2023_-_1_ 1.webp";
+import thoscoLogo from "../../assets/optimized/Partners/THOSCO.webp";
+import tuniseOuateLogo from "../../assets/optimized/Partners/Tunise Ouate.webp";
+import valmetLogo from "../../assets/optimized/Partners/valmet_logo 1.webp";
 import SectionContainer from "../shared/SectionContainer";
 
 const partnerGroups = [
@@ -158,6 +158,8 @@ function PartnersGrid() {
                       src={partner.image}
                       alt={partner.name}
                       className="max-h-18 max-w-50 object-contain transition duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-[1.04]"
+                      decoding="async"
+                      loading="lazy"
                     />
                   </motion.a>
                 ))}

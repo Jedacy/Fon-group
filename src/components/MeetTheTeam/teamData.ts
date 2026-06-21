@@ -1,9 +1,9 @@
-import emmanuelImage from "../../assets/Team/Emmanuel.png";
-import executiveDirectorImage from "../../assets/Team/Exec Director.png";
-import founderImage from "../../assets/Team/Founder.png";
-import frederickImage from "../../assets/Team/Frederick.png";
-import samuelImage from "../../assets/Team/Samuel.png";
-import williamImage from "../../assets/Team/William.png";
+import emmanuelImage from "../../assets/optimized/Team/Emmanuel.webp";
+import executiveDirectorImage from "../../assets/optimized/Team/Exec Director.webp";
+import founderImage from "../../assets/optimized/Team/Founder.webp";
+import frederickImage from "../../assets/optimized/Team/Frederick.webp";
+import samuelImage from "../../assets/optimized/Team/Samuel.webp";
+import williamImage from "../../assets/optimized/Team/William.webp";
 
 export type TeamMember = {
   slug: string;

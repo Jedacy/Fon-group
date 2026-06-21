@@ -1,6 +1,6 @@
 import { ArrowUp, Camera, CirclePlay, ExternalLink } from "lucide-react";
 import { Link } from "react-router-dom";
-import logo from "../assets/Logo.png";
+import logo from "../assets/optimized/Logo.webp";
 
 const groupLinks = [
   { label: "Fon Ltd", to: "/the-group" },
@@ -23,7 +23,7 @@ function Footer() {
     <footer id="contact" className="bg-[#12151a] text-white">
       <div className="mx-auto max-w-7xl px-6 py-14 sm:px-10 lg:px-14">
         <div className="flex flex-col gap-8 sm:flex-row sm:items-center sm:justify-between">
-          <img src={logo} alt="FON Group" className="h-8 w-fit md:h-10" />
+          <img src={logo} alt="FON Group" className="h-8 w-fit md:h-10" decoding="async" loading="lazy" />
           <Link
             to="/contact"
             className="inline-flex w-fit items-center justify-center rounded-full bg-white px-7 py-3 text-sm font-semibold text-[#1f242b] transition duration-200 hover:bg-slate-100"

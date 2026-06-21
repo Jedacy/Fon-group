@@ -1,8 +1,8 @@
 import { useRef, useState, useSyncExternalStore } from "react";
 import { ChevronDown } from "lucide-react";
 import { Link, NavLink, useLocation } from "react-router-dom";
-import logo from "../assets/Logo.png";
-import solidLogo from "../assets/Logo Black Label.png";
+import logo from "../assets/optimized/Logo.webp";
+import solidLogo from "../assets/optimized/Logo Black Label.webp";
 
 const navLinks = [
   { label: "Home", to: "/" },
@@ -101,7 +101,13 @@ function Navbar() {
     <header className={`left-0 top-0 z-50 w-full transition-all duration-300 ${headerClass}`}>
       <nav className="mx-auto flex h-20 max-w-7xl items-center justify-between px-6 sm:px-10 lg:px-14">
         <Link to="/" className="inline-flex items-center" aria-label="FON Group home">
-          <img src={isSolid ? solidLogo : logo} alt="FON Group" className="h-9 w-auto md:h-8" />
+          <img
+            src={isSolid ? solidLogo : logo}
+            alt="FON Group"
+            className="h-9 w-auto md:h-8"
+            decoding="async"
+            loading="eager"
+          />
         </Link>
 
         <div className="hidden items-center gap-9 text-[15px] font-medium md:flex">

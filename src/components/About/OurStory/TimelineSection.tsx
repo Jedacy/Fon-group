@@ -1,29 +1,29 @@
 import { useEffect, useState } from "react";
-import image1984A from "../../../assets/History/1984 1.png";
-import image1984B from "../../../assets/History/1984 2.png";
-import image1984C from "../../../assets/History/1984 3.png";
-import image1994A from "../../../assets/History/1994.png";
-import image1994B from "../../../assets/History/1994-1.png";
-import image1994C from "../../../assets/History/1994-2.png";
-import image1996A from "../../../assets/History/1996.png";
-import image1996B from "../../../assets/History/1996-1.png";
-import image1996C from "../../../assets/History/1996-2.png";
-import image1996D from "../../../assets/History/1996-3.png";
-import image1998A from "../../../assets/History/1998.png";
-import image1998B from "../../../assets/History/1998-1.png";
-import image1998C from "../../../assets/History/1998-2.png";
-import image1998D from "../../../assets/History/1998-3.png";
-import image2005A from "../../../assets/History/2005.png";
-import image2005B from "../../../assets/History/2005-1.png";
-import image2005C from "../../../assets/History/2005-2.png";
-import image2005D from "../../../assets/History/2005-3.png";
-import image2014A from "../../../assets/History/2014.png";
-import image2014B from "../../../assets/History/2014-1.png";
-import image2014C from "../../../assets/History/2014-2.png";
-import image2014D from "../../../assets/History/2014-3.png";
-import image2018A from "../../../assets/History/2018.png";
-import image2018B from "../../../assets/History/2018-1.png";
-import image2018C from "../../../assets/History/2018 2.png";
+import image1984A from "../../../assets/optimized/History/1984 1.webp";
+import image1984B from "../../../assets/optimized/History/1984 2.webp";
+import image1984C from "../../../assets/optimized/History/1984 3.webp";
+import image1994A from "../../../assets/optimized/History/1994.webp";
+import image1994B from "../../../assets/optimized/History/1994-1.webp";
+import image1994C from "../../../assets/optimized/History/1994-2.webp";
+import image1996A from "../../../assets/optimized/History/1996.webp";
+import image1996B from "../../../assets/optimized/History/1996-1.webp";
+import image1996C from "../../../assets/optimized/History/1996-2.webp";
+import image1996D from "../../../assets/optimized/History/1996-3.webp";
+import image1998A from "../../../assets/optimized/History/1998.webp";
+import image1998B from "../../../assets/optimized/History/1998-1.webp";
+import image1998C from "../../../assets/optimized/History/1998-2.webp";
+import image1998D from "../../../assets/optimized/History/1998-3.webp";
+import image2005A from "../../../assets/optimized/History/2005.webp";
+import image2005B from "../../../assets/optimized/History/2005-1.webp";
+import image2005C from "../../../assets/optimized/History/2005-2.webp";
+import image2005D from "../../../assets/optimized/History/2005-3.webp";
+import image2014A from "../../../assets/optimized/History/2014.webp";
+import image2014B from "../../../assets/optimized/History/2014-1.webp";
+import image2014C from "../../../assets/optimized/History/2014-2.webp";
+import image2014D from "../../../assets/optimized/History/2014-3.webp";
+import image2018A from "../../../assets/optimized/History/2018.webp";
+import image2018B from "../../../assets/optimized/History/2018-1.webp";
+import image2018C from "../../../assets/optimized/History/2018 2.webp";
 import SectionContainer from "../../shared/SectionContainer";
 
 const timelineItems = [
@@ -100,6 +100,8 @@ function TimelineSection() {
                         src={activeImage}
                         alt={`${item.year} FON Group history`}
                         className="aspect-[1.18/1] w-full object-cover transition-opacity duration-500"
+                        decoding="async"
+                        loading="lazy"
                       />
                     </div>
                   </div>

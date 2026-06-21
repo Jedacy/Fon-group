@@ -17,17 +17,17 @@ import {
   Wifi,
   X,
 } from "lucide-react";
-import adwoaOne from "../../../assets/Oasis Properties/Adwoa Boatemaa 1.jpeg";
-import adwoaTwo from "../../../assets/Oasis Properties/Adwoa Boatemaa 2.jpeg";
-import adwoaThree from "../../../assets/Oasis Properties/Adwoa Boatemaa 3.jpeg";
-import commercialImage from "../../../assets/Oasis Properties/Commercial.jpeg";
-import oasisExterior from "../../../assets/Oasis Properties/oasis.jpg";
-import oasisLodgeOne from "../../../assets/Oasis Properties/Oasis Lodge1.jpg";
-import oasisLodgeTwo from "../../../assets/Oasis Properties/Oasis Lodge2.jpg";
-import oasisLodgeThree from "../../../assets/Oasis Properties/Oasis Lodge3.jpg";
-import osafoOne from "../../../assets/Oasis Properties/Osafo 1.jpeg";
-import osafoTwo from "../../../assets/Oasis Properties/Osafo 2.jpeg";
-import osafoThree from "../../../assets/Oasis Properties/Osafo 3.jpeg";
+import adwoaOne from "../../../assets/optimized/Oasis Properties/Adwoa Boatemaa 1.webp";
+import adwoaTwo from "../../../assets/optimized/Oasis Properties/Adwoa Boatemaa 2.webp";
+import adwoaThree from "../../../assets/optimized/Oasis Properties/Adwoa Boatemaa 3.webp";
+import commercialImage from "../../../assets/optimized/Oasis Properties/Commercial.webp";
+import oasisExterior from "../../../assets/optimized/Oasis Properties/oasis.webp";
+import oasisLodgeOne from "../../../assets/optimized/Oasis Properties/Oasis Lodge1.webp";
+import oasisLodgeTwo from "../../../assets/optimized/Oasis Properties/Oasis Lodge2.webp";
+import oasisLodgeThree from "../../../assets/optimized/Oasis Properties/Oasis Lodge3.webp";
+import osafoOne from "../../../assets/optimized/Oasis Properties/Osafo 1.webp";
+import osafoTwo from "../../../assets/optimized/Oasis Properties/Osafo 2.webp";
+import osafoThree from "../../../assets/optimized/Oasis Properties/Osafo 3.webp";
 import SectionContainer from "../../shared/SectionContainer";
 
 type AmenityIcon =
@@ -183,7 +183,13 @@ function PropertyCard({ property, onOpen }: { property: OasisProperty; onOpen: (
       onClick={() => onOpen(property)}
       className="group grid max-h-36 w-full grid-cols-[132px_1fr_auto] items-center overflow-hidden rounded-2xl border border-slate-200 bg-white text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-[#003a4f] sm:grid-cols-[170px_1fr_auto] transition duration-300 hover:border-slate-300 hover:shadow-xl cursor-pointer"
     >
-      <img src={property.thumbnail} alt="" className="h-full min-h-36 w-full object-cover" />
+      <img
+        src={property.thumbnail}
+        alt=""
+        className="h-full min-h-36 w-full object-cover"
+        decoding="async"
+        loading="lazy"
+      />
       <div className="min-w-0 px-5 py-5 sm:px-6">
         <h2 className="font-heading text-lg font-medium leading-snug text-slate-950 sm:text-xl">{property.cardTitle}</h2>
         <div className="mt-4 flex flex-wrap items-center gap-x-4 gap-y-2 text-sm text-slate-700">
@@ -225,15 +231,36 @@ function AmenityList({ amenities }: { amenities: OasisProperty["amenities"] }) {
 
 function ModalGallery({ property }: { property: OasisProperty }) {
   if (property.gallery.length === 1) {
-    return <img src={property.gallery[0]} alt="" className="mt-10 aspect-[1.65] w-full object-cover" />;
+    return (
+      <img
+        src={property.gallery[0]}
+        alt=""
+        className="mt-10 aspect-[1.65] w-full object-cover"
+        decoding="async"
+        loading="lazy"
+      />
+    );
   }
 
   return (
     <div className="mt-10 grid gap-4">
-      <img src={property.gallery[0]} alt="" className="aspect-[2.55] w-full object-cover" />
+      <img
+        src={property.gallery[0]}
+        alt=""
+        className="aspect-[2.55] w-full object-cover"
+        decoding="async"
+        loading="lazy"
+      />
       <div className="grid gap-4 sm:grid-cols-2">
         {property.gallery.slice(1).map((image) => (
-          <img key={image} src={image} alt="" className="aspect-[1.45] w-full object-cover" />
+          <img
+            key={image}
+            src={image}
+            alt=""
+            className="aspect-[1.45] w-full object-cover"
+            decoding="async"
+            loading="lazy"
+          />
         ))}
       </div>
     </div>

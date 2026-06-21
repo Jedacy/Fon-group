@@ -1,11 +1,11 @@
 import { ArrowRight } from "lucide-react";
 import { motion, useReducedMotion } from "motion/react";
-import choptimeLogo from "../../assets/Choptime.png";
-import fonPackagingLogo from "../../assets/Fon Packaging.png";
-import fonStatLogo from "../../assets/FonStat.png";
-import fonLtdLogo from "../../assets/Fon Ltd.png";
-import oasisLogo from "../../assets/Oasis.png";
-import groupLogos from "../../assets/Home/group-logos.png";
+import choptimeLogo from "../../assets/optimized/Choptime.webp";
+import fonPackagingLogo from "../../assets/optimized/Fon Packaging.webp";
+import fonStatLogo from "../../assets/optimized/FonStat.webp";
+import fonLtdLogo from "../../assets/optimized/Fon Ltd.webp";
+import oasisLogo from "../../assets/optimized/Oasis.webp";
+import groupLogos from "../../assets/optimized/Home/group-logos.webp";
 import SectionContainer from "../shared/SectionContainer";
 
 const companyLogos = [
@@ -47,6 +47,8 @@ function GroupCompaniesSection() {
         <img
           src={groupLogos}
           alt="FON Group company logos"
+          decoding="async"
+          loading="lazy"
           className="mx-auto mt-12 w-full max-w-190 object-contain md:hidden"
         />
         <div className="mt-12 hidden overflow-hidden py-4 md:block">
@@ -68,7 +70,13 @@ function GroupCompaniesSection() {
                 key={logo.alt}
                 className="flex h-28 items-center justify-center rounded-md bg-white px-4 transition duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] hover:-translate-y-1"
               >
-                <img src={logo.image} alt={logo.alt} className="max-h-20 w-full object-contain" />
+                <img
+                  src={logo.image}
+                  alt={logo.alt}
+                  className="max-h-20 w-full object-contain"
+                  decoding="async"
+                  loading="lazy"
+                />
               </div>
             ))}
           </motion.div>

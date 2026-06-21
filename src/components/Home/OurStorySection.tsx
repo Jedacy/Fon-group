@@ -1,5 +1,5 @@
 import { CircleArrowRight } from "lucide-react";
-import ourStoryImage from "../../assets/Home/OurStory.jpg";
+import ourStoryImage from "../../assets/optimized/Home/OurStory.webp";
 import SectionContainer from "../shared/SectionContainer";
 
 function OurStorySection() {
@@ -36,6 +36,8 @@ function OurStorySection() {
             <img
               src={ourStoryImage}
               alt="FON Group Founder operating manufacturing machinery"
+              decoding="async"
+              loading="lazy"
               className="h-full w-full object-cover"
             />
           </div>

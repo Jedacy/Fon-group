@@ -1,5 +1,5 @@
 import { BadgeCheck } from "lucide-react";
-import watermark from "../../../assets/Watermark.png";
+import watermark from "../../../assets/optimized/Watermark.webp";
 import SectionContainer from "../../shared/SectionContainer";
 
 const horizonItems = [
@@ -56,6 +56,8 @@ function HorizonSection() {
         src={watermark}
         alt=""
         className="pointer-events-none absolute bottom-10 right-8 h-28 w-28 opacity-10 sm:bottom-14 sm:right-16"
+        decoding="async"
+        loading="lazy"
       />
     </section>
   );

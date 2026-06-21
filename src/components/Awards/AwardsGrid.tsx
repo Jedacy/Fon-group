@@ -33,6 +33,8 @@ function AwardsGrid() {
                   src={award.image}
                   alt={`${award.year} ${award.title}`}
                   className="aspect-[1.55/1] w-full object-cover transition duration-500 hover:scale-105"
+                  decoding="async"
+                  loading="lazy"
                 />
               </div>
               <h2 className="font-heading mt-9 text-2xl font-bold leading-tight text-slate-950">{award.year}</h2>

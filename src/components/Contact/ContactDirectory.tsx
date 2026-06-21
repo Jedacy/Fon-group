@@ -1,8 +1,8 @@
 import { Mail, MapPin, Phone } from "lucide-react";
-import fonLtdLogo from "../../assets/Fon Ltd.png";
-import fonPackagingLogo from "../../assets/Fon Packaging.png";
-import fonstatLogo from "../../assets/FonStat.png";
-import oasisLogo from "../../assets/Oasis.png";
+import fonLtdLogo from "../../assets/optimized/Fon Ltd.webp";
+import fonPackagingLogo from "../../assets/optimized/Fon Packaging.webp";
+import fonstatLogo from "../../assets/optimized/FonStat.webp";
+import oasisLogo from "../../assets/optimized/Oasis.webp";
 import SectionContainer from "../shared/SectionContainer";
 
 const contacts = [
@@ -52,7 +52,13 @@ function ContactDirectory() {
           {contacts.map((contact) => (
             <article key={contact.name} className="min-w-0">
               <div className="flex h-24 items-center">
-                <img src={contact.logo} alt={contact.name} className={`${contact.logoClassName} w-auto object-contain`} />
+                <img
+                  src={contact.logo}
+                  alt={contact.name}
+                  className={`${contact.logoClassName} w-auto object-contain`}
+                  decoding="async"
+                  loading="lazy"
+                />
               </div>
 
               <div className="mt-7 grid gap-5 text-[15px] text-slate-950">

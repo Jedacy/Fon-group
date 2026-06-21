@@ -1,9 +1,9 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import { CircleArrowRight } from "lucide-react";
 import { motion, useReducedMotion } from "motion/react";
-import cardOne from "../../assets/Home/card 1.png";
-import cardTwo from "../../assets/Home/card 2.jpeg";
-import cardThree from "../../assets/Home/card 3.jpg";
+import cardOne from "../../assets/optimized/Home/card 1.webp";
+import cardTwo from "../../assets/optimized/Home/card 2.webp";
+import cardThree from "../../assets/optimized/Home/card 3.webp";
 import SectionContainer from "../shared/SectionContainer";
 
 const whoCards = [
@@ -189,6 +189,8 @@ function CardDeck() {
             <img
               src={card.image}
               alt={card.alt}
+              decoding="async"
+              loading="lazy"
               className={`h-full w-full object-cover transition-transform delay-75 duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover/card:scale-[1.035] group-focus-visible/card:scale-[1.035] motion-reduce:transform-none motion-reduce:transition-none ${
                 isPromoted ? "scale-[1.02]" : ""
               }`}

@@ -26,7 +26,13 @@ function TeamProfileDetail({ member }: TeamProfileDetailProps) {
         <div className="mt-14 grid gap-12 lg:grid-cols-[0.82fr_1.18fr] lg:items-start">
           <div>
             <div className=" rounded-2xl bg-[#d2d2d2] ring-1 ring-slate-300">
-              <img src={member.image} alt={member.name} className="overflow-x-visible aspect-[0.74/1] w-full object-cover object-top" />
+              <img
+                src={member.image}
+                alt={member.name}
+                className="overflow-x-visible aspect-[0.74/1] w-full object-cover object-top"
+                decoding="async"
+                loading="lazy"
+              />
             </div>
 
             <div className="mt-9 flex flex-wrap gap-4">

@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
-import heroOne from "../../assets/Heroes/Hero1.png";
-import heroTwo from "../../assets/Heroes/Hero2.png";
-import heroThree from "../../assets/Heroes/Hero3.png";
-import watermark from "../../assets/Watermark.png";
+import heroOne from "../../assets/optimized/Heroes/Hero1.webp";
+import heroTwo from "../../assets/optimized/Heroes/Hero2.webp";
+import heroThree from "../../assets/optimized/Heroes/Hero3.webp";
+import watermark from "../../assets/optimized/Watermark.webp";
 import SectionContainer from "../shared/SectionContainer";
 
 const heroSlides = [
@@ -73,6 +73,9 @@ function HeroSection() {
             key={slide.headline}
             src={slide.image}
             alt={slide.alt}
+            decoding="async"
+            fetchPriority={index === 0 ? "high" : "auto"}
+            loading="eager"
             className={`absolute inset-0 h-full w-full scale-100 object-cover transition-opacity duration-1200ms ease-[cubic-bezier(0.16,1,0.3,1)] motion-reduce:transform-none motion-reduce:transition-none ${
               isActive ? `opacity-100 ${zoomAnimation}` : "opacity-0"
             }`}
@@ -101,6 +104,7 @@ function HeroSection() {
       <img
         src={watermark}
         alt=""
+        decoding="async"
         className="pointer-events-none absolute bottom-20 right-12 hidden h-14 w-14 opacity-45 md:block"
       />
     </section>

@@ -1,9 +1,9 @@
 import { ArrowRight } from "lucide-react";
-import choptimeLogo from "../../assets/Choptime.png";
-import fonLtdLogo from "../../assets/Fon Ltd.png";
-import fonPackagingLogo from "../../assets/Group FON Packaging.png";
-import fonstatLogo from "../../assets/FonStat.png";
-import oasisLogo from "../../assets/Group Oasis.png";
+import choptimeLogo from "../../assets/optimized/Choptime.webp";
+import fonLtdLogo from "../../assets/optimized/Fon Ltd.webp";
+import fonPackagingLogo from "../../assets/optimized/Group FON Packaging.webp";
+import fonstatLogo from "../../assets/optimized/FonStat.webp";
+import oasisLogo from "../../assets/optimized/Group Oasis.webp";
 import SectionContainer from "../shared/SectionContainer";
 
 const companies = [
@@ -84,6 +84,8 @@ function CompanyGrid() {
                     src={company.logo}
                     alt={company.logoAlt}
                     className={`mx-auto w-auto max-w-full object-contain ${company.logoClassName}`}
+                    decoding="async"
+                    loading="lazy"
                   />
                   {company.tagline ? (
                     <p className="mt-5 text-sm font-bold italic leading-5 text-slate-900">{company.tagline}</p>

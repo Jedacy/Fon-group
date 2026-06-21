@@ -21,6 +21,8 @@ function TeamSections() {
                   src={member.image}
                   alt={member.name}
                   className="h-full w-full object-cover transition duration-500 group-hover:scale-105"
+                  decoding="async"
+                  loading="lazy"
                 />
                 <div className="absolute inset-x-0 bottom-0 bg-white/90 px-7 py-6 backdrop-blur-sm">
                   <h3 className="font-heading text-2xl font-bold leading-tight text-slate-950 sm:text-3xl">
@@ -47,6 +49,8 @@ function TeamSections() {
                     src={member.image}
                     alt={member.name}
                     className="aspect-3/4 w-full object-cover transition duration-500 group-hover:scale-105"
+                    decoding="async"
+                    loading="lazy"
                   />
                 </Link>
                 <div className="absolute right-4 top-4 grid gap-3">
