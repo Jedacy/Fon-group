@@ -17,9 +17,15 @@ function NewsSection() {
               className="group min-w-0 rounded-md focus:outline-none focus-visible:ring-2 focus-visible:ring-[#f1c400]"
             >
               <article className="min-w-0">
-                <div
-                  className={`aspect-[1.35/1] w-full rounded-md transition duration-300 group-hover:-translate-y-1 group-hover:shadow-xl group-hover:shadow-black/20 ${card.shade}`}
-                />
+                <div className="aspect-[1.35/1] w-full overflow-hidden rounded-md bg-white/10 transition duration-300 group-hover:-translate-y-1 group-hover:shadow-xl group-hover:shadow-black/20">
+                  <img
+                    src={card.image}
+                    alt={card.imageAlt}
+                    loading="lazy"
+                    decoding="async"
+                    className="h-full w-full object-cover transition duration-500 group-hover:scale-105"
+                  />
+                </div>
                 <p className="mt-4 text-[11px] font-semibold leading-4 text-white/45">
                   {card.source} - {card.date}
                 </p>

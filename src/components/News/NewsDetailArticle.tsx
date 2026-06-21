@@ -3,10 +3,26 @@ import { Link } from "react-router-dom";
 import SectionContainer from "../shared/SectionContainer";
 import { type NewsItem, newsItems } from "./newsData";
 
-function ArticleSkeleton({ shade, className = "" }: { shade: string; className?: string }) {
+function ArticleImage({
+  src,
+  alt,
+  className = "",
+  loading = "lazy",
+}: {
+  src: string;
+  alt: string;
+  className?: string;
+  loading?: "eager" | "lazy";
+}) {
   return (
-    <div className={`relative overflow-hidden rounded-md ${shade} ${className}`} aria-hidden="true">
-      <div className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/35 to-transparent opacity-70 motion-safe:animate-[news-shimmer_2.6s_ease-in-out_infinite]" />
+    <div className={`overflow-hidden rounded-md bg-slate-200 ${className}`}>
+      <img
+        src={src}
+        alt={alt}
+        loading={loading}
+        decoding="async"
+        className="h-full w-full object-cover transition duration-500 group-hover:scale-105"
+      />
     </div>
   );
 }
@@ -46,7 +62,7 @@ function RelatedCard({ item }: { item: NewsItem }) {
       to={item.href}
       className="group rounded-lg border border-slate-200 bg-white p-3 transition duration-300 hover:-translate-y-1 hover:shadow-xl focus:outline-none focus-visible:ring-2 focus-visible:ring-[#003246]"
     >
-      <ArticleSkeleton shade={item.shade} className="aspect-[1.62] w-full" />
+      <ArticleImage src={item.image} alt={item.imageAlt} className="aspect-[1.62] w-full" />
       <div className="p-2 pt-5">
         <p className="font-section-label text-[10px] font-bold uppercase tracking-[0.22em] text-[#008d6b]">
           {item.category}
@@ -105,7 +121,12 @@ function NewsDetailArticle({ article }: { article: NewsItem | undefined }) {
             </h1>
             <p className="mt-6 text-lg leading-8 text-slate-500">{article.excerpt[0]}</p>
 
-            <ArticleSkeleton shade={article.heroShade} className="mt-12 aspect-[1.76] w-full" />
+            <ArticleImage
+              src={article.image}
+              alt={article.imageAlt}
+              loading="eager"
+              className="mt-12 aspect-[1.76] w-full"
+            />
 
             <div className="mt-10 border-t border-slate-200 pt-10">
               <div className="space-y-10 text-base leading-8 text-slate-600">
@@ -136,6 +157,16 @@ function NewsDetailArticle({ article }: { article: NewsItem | undefined }) {
                 <blockquote className="border-l-2 border-indigo-500 py-1 pl-5 text-base font-bold italic leading-7 text-slate-800">
                   {article.quote}
                 </blockquote>
+
+                <a
+                  href={article.externalUrl}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="inline-flex items-center gap-2 rounded-full border border-slate-200 px-5 py-3 text-sm font-bold text-slate-800 transition duration-200 hover:-translate-y-0.5 hover:border-slate-300 hover:bg-slate-50"
+                >
+                  Read original source
+                  <ArrowUpRight aria-hidden="true" size={15} />
+                </a>
               </div>
 
               <div className="mt-14 rounded-xl border border-slate-200 bg-slate-50 p-6 sm:flex sm:items-center sm:gap-5">

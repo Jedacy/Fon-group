@@ -74,8 +74,8 @@ function HeroSection() {
             src={slide.image}
             alt={slide.alt}
             decoding="async"
-            fetchPriority={index === 0 ? "high" : "auto"}
-            loading="eager"
+            fetchPriority={index === 0 ? "high" : "low"}
+            loading={index === 0 ? "eager" : "lazy"}
             className={`absolute inset-0 h-full w-full scale-100 object-cover transition-opacity duration-1200ms ease-[cubic-bezier(0.16,1,0.3,1)] motion-reduce:transform-none motion-reduce:transition-none ${
               isActive ? `opacity-100 ${zoomAnimation}` : "opacity-0"
             }`}

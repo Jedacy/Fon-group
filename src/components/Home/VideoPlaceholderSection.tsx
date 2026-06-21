@@ -1,4 +1,4 @@
-import Hls from "hls.js";
+import type Hls from "hls.js";
 import { useEffect, useRef, useSyncExternalStore } from "react";
 
 const HLS_SOURCE = "/media/home-video/master.m3u8";
@@ -49,6 +49,8 @@ function VideoPlaceholderSection() {
 
   useEffect(() => {
     const video = videoRef.current;
+    let hls: Hls | null = null;
+    let isDisposed = false;
 
     if (!video) {
       return;
@@ -69,27 +71,43 @@ function VideoPlaceholderSection() {
       return;
     }
 
-    if (Hls.isSupported()) {
-      const hls = new Hls({
-        capLevelToPlayerSize: true,
-        startLevel: startLowQuality ? 0 : -1,
-      });
+    void import("hls.js/dist/hls.light.mjs")
+      .then(({ default: Hls }) => {
+        if (isDisposed || !Hls.isSupported()) {
+          if (!isDisposed) {
+            video.src = FALLBACK_SOURCE;
+            void video.play().catch(() => undefined);
+          }
 
-      hls.loadSource(HLS_SOURCE);
-      hls.attachMedia(video);
-      hls.on(Hls.Events.MANIFEST_PARSED, () => {
-        if (startLowQuality) {
-          hls.currentLevel = 0;
+          return;
         }
 
-        void video.play().catch(() => undefined);
+        hls = new Hls({
+          capLevelToPlayerSize: true,
+          startLevel: startLowQuality ? 0 : -1,
+        });
+
+        hls.loadSource(HLS_SOURCE);
+        hls.attachMedia(video);
+        hls.on(Hls.Events.MANIFEST_PARSED, () => {
+          if (startLowQuality && hls) {
+            hls.currentLevel = 0;
+          }
+
+          void video.play().catch(() => undefined);
+        });
+      })
+      .catch(() => {
+        if (!isDisposed) {
+          video.src = FALLBACK_SOURCE;
+          void video.play().catch(() => undefined);
+        }
       });
 
-      return () => hls.destroy();
-    }
-
-    video.src = FALLBACK_SOURCE;
-    void video.play().catch(() => undefined);
+    return () => {
+      isDisposed = true;
+      hls?.destroy();
+    };
   }, [prefersReducedMotion]);
 
   return (

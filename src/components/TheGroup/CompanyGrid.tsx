@@ -52,7 +52,7 @@ const companies = [
     description:
       "Being the latest addition to the FON GROUP, Chop time is looking to expand and take on food packaging. With prior experience in packaging, Choptime serves as the groups response to quality food packages that are recyclable and of good quality.",
     action: "View Brochure",
-    link: "https://choptime.com/",
+    link: "/chop time.pdf",
     actionClassName: "text-blue-600 hover:text-blue-700",
   },
   {
@@ -106,8 +106,8 @@ function CompanyGrid() {
               <div className="mt-8 h-px w-full bg-slate-200" />
               <a
                 href={company.link}
-                target={company.action === "Visit Website" ? "_blank" : undefined}
-                rel="noopener noreferrer"
+                target={company.link.endsWith(".pdf") || company.link.startsWith("http") ? "_blank" : undefined}
+                rel={company.link.endsWith(".pdf") || company.link.startsWith("http") ? "noopener noreferrer" : undefined}
                 className={`mt-6 inline-flex items-center gap-1.5 text-sm font-bold underline-offset-4 transition duration-200 hover:underline ${
                   company.actionClassName ?? "text-slate-950 hover:text-[#003246]"
                 }`}

@@ -3,13 +3,24 @@ import { Link } from "react-router-dom";
 import SectionContainer from "../shared/SectionContainer";
 import { newsItems } from "./newsData";
 
-function NewsSkeleton({ shade, className = "" }: { shade: string; className?: string }) {
+function NewsImage({
+  src,
+  alt,
+  className = "",
+}: {
+  src: string;
+  alt: string;
+  className?: string;
+}) {
   return (
-    <div
-      className={`relative overflow-hidden rounded-sm ${shade} ${className}`}
-      aria-hidden="true"
-    >
-      <div className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/30 to-transparent opacity-70 motion-safe:animate-[news-shimmer_2.6s_ease-in-out_infinite]" />
+    <div className={`overflow-hidden rounded-sm bg-slate-200 ${className}`}>
+      <img
+        src={src}
+        alt={alt}
+        loading="lazy"
+        decoding="async"
+        className="h-full w-full object-cover transition duration-500 group-hover:scale-105"
+      />
     </div>
   );
 }
@@ -22,7 +33,9 @@ function NewsListing() {
     <section className="bg-white py-24 sm:py-28">
       <SectionContainer className="grid gap-14 lg:grid-cols-[1.45fr_0.95fr] lg:gap-16">
         <article>
-          <NewsSkeleton shade={featured.shade} className="aspect-[1.72] w-full" />
+          <Link to={featured.href} className="group block focus:outline-none focus-visible:ring-2 focus-visible:ring-[#003a4f]">
+            <NewsImage src={featured.image} alt={featured.imageAlt} className="aspect-[1.72] w-full" />
+          </Link>
           <p className="font-section-label mt-9 text-xs font-bold uppercase tracking-[0.28em] text-slate-500">
             {featured.category}
           </p>
@@ -50,8 +63,9 @@ function NewsListing() {
               to={item.href}
               className="group grid gap-5 rounded-md focus:outline-none focus-visible:ring-2 focus-visible:ring-[#003a4f] sm:grid-cols-[184px_1fr] lg:grid-cols-[180px_1fr]"
             >
-              <NewsSkeleton
-                shade={item.shade}
+              <NewsImage
+                src={item.image}
+                alt={item.imageAlt}
                 className="aspect-[1.52] w-full transition duration-300 group-hover:-translate-y-1 group-hover:shadow-lg"
               />
               <div className="min-w-0 py-1">
