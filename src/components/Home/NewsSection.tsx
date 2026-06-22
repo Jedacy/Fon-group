@@ -8,7 +8,7 @@ function NewsSection() {
   return (
     <section id="news" className="bg-[#003246] py-24 text-white sm:py-28">
       <SectionContainer>
-        <h2 className="font-heading text-center text-4xl font-bold sm:text-5xl">News</h2>
+        <h2 className="font-heading text-center text-4xl font-medium sm:text-5xl">News</h2>
         <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-5">
           {previewItems.map((card) => (
             <Link
