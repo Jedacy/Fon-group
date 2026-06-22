@@ -13,6 +13,7 @@ dist-ssr
 *.local
 Figma ui
 .agents
+docs
 
 # Editor directories and files
 .vscode/*

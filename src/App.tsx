@@ -3,6 +3,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Navbar from "./layout/Navbar";
 import Footer from "./layout/Footer";
 import ScrollToTop from "./components/shared/ScrollToTop";
+import SeoManager from "./seo/SeoManager";
 
 const Awards = lazy(() => import("./pages/Awards"));
 const Contact = lazy(() => import("./pages/Contact"));
@@ -34,6 +35,7 @@ function App() {
   return (
     <BrowserRouter>
       <div className="min-h-screen w-full bg-white text-slate-950">
+        <SeoManager />
         <ScrollToTop />
         <Navbar />
         <Suspense fallback={<RouteFallback />}>
