@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import image1984A from "../../../assets/optimized/History/1984 1.webp";
 import image1984B from "../../../assets/optimized/History/1984 2.webp";
 import image1984C from "../../../assets/optimized/History/1984 3.webp";
@@ -71,39 +71,97 @@ const timelineItems = [
   },
 ];
 
+function TimelineImage({
+  images,
+  imageIndex,
+  alt,
+}: {
+  images: string[];
+  imageIndex: number;
+  alt: string;
+}) {
+  const activePosition = imageIndex % images.length;
+
+  return (
+    <div className="relative aspect-[1.18/1] overflow-hidden rounded-md bg-slate-100 shadow-sm">
+      {images.map((image, index) => {
+        const isActive = index === activePosition;
+        const isPrevious = index === (activePosition - 1 + images.length) % images.length;
+
+        return (
+          <img
+            key={image}
+            src={image}
+            alt={isActive ? alt : ""}
+            aria-hidden={!isActive}
+            className={`absolute inset-0 h-full w-full object-cover transition-[opacity,transform] duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] motion-reduce:transition-opacity ${
+              isActive
+                ? "z-10 translate-x-0 opacity-100"
+                : isPrevious
+                  ? "z-0 -translate-x-8 opacity-0"
+                  : "z-0 translate-x-8 opacity-0"
+            } motion-reduce:translate-x-0`}
+            decoding="async"
+            loading="lazy"
+          />
+        );
+      })}
+    </div>
+  );
+}
+
 function TimelineSection() {
+  const sectionRef = useRef<HTMLElement>(null);
   const [imageIndex, setImageIndex] = useState(0);
+  const [isInViewport, setIsInViewport] = useState(false);
 
   useEffect(() => {
+    const section = sectionRef.current;
+
+    if (!section) {
+      return;
+    }
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setIsInViewport(entry.isIntersecting);
+      },
+      { threshold: 0.15 },
+    );
+
+    observer.observe(section);
+
+    return () => observer.disconnect();
+  }, []);
+
+  useEffect(() => {
+    if (!isInViewport) {
+      return;
+    }
+
     const timer = window.setInterval(() => {
       setImageIndex((current) => current + 1);
     }, 3000);
 
     return () => window.clearInterval(timer);
-  }, []);
+  }, [isInViewport]);
 
   return (
-    <section className="bg-white pb-24 sm:pb-32">
+    <section ref={sectionRef} className="bg-white pb-24 sm:pb-32">
       <SectionContainer>
         <div className="relative mx-auto max-w-6xl">
           <div className="absolute left-1/2 top-0 hidden h-full w-px -translate-x-1/2 bg-slate-400 lg:block" />
 
           <div className="grid gap-14">
             {timelineItems.map((item) => {
-              const activeImage = item.images[imageIndex % item.images.length];
-
               return (
                 <article key={item.year} className="relative grid gap-8 lg:grid-cols-[1fr_96px_1fr] lg:items-start">
                   <div className="lg:pr-10">
-                    <div className="overflow-hidden rounded-md bg-slate-100 shadow-sm">
-                      <img
-                        src={activeImage}
-                        alt={`${item.year} FON Group history`}
-                        className="aspect-[1.18/1] w-full object-cover transition-opacity duration-500"
-                        decoding="async"
-                        loading="lazy"
-                      />
-                    </div>
+                    <TimelineImage
+                      images={item.images}
+                      imageIndex={imageIndex}
+                      alt={`${item.year} FON Group history`}
+                    />
                   </div>
 
                   <div className="relative hidden h-full justify-center lg:flex">

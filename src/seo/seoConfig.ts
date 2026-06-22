@@ -3,7 +3,7 @@ import heroUrl from "../assets/optimized/Heroes/Hero1.webp";
 import { newsItems } from "../components/News/newsData";
 import { getTeamMemberBySlug } from "../components/MeetTheTeam/teamData";
 
-const SITE_URL = "https://thefongroup.com";
+const SITE_URL = "https://fon-group.pages.dev";
 const SITE_NAME = "The FON Group";
 const DEFAULT_IMAGE = `${SITE_URL}${heroUrl}`;
 const LOGO_IMAGE = `${SITE_URL}${logoUrl}`;

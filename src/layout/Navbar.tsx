@@ -191,10 +191,10 @@ function Navbar() {
 
       <div
         className={`overflow-hidden border-t transition-[max-height,opacity] duration-300 md:hidden ${mobilePanelTone} ${
-          menuOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
+          menuOpen ? "max-h-[calc(100vh-5rem)] opacity-100" : "max-h-0 opacity-0"
         }`}
       >
-        <div className="mx-auto grid max-w-7xl gap-1 px-6 py-5">
+        <div className="mx-auto grid max-h-[calc(100vh-5rem)] max-w-7xl gap-1 overflow-y-auto overscroll-contain px-6 py-5">
           {navLinks.map((link) => (
             <div key={link.label}>
               <NavLink
