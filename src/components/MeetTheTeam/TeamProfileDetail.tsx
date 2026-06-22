@@ -36,9 +36,11 @@ function TeamProfileDetail({ member }: TeamProfileDetailProps) {
             </div>
 
             <div className="mt-9 flex flex-wrap gap-4">
-              {member.hasLinkedIn ? (
+              {member.linkedInUrl ? (
                 <a
-                  href="#"
+                  href={member.linkedInUrl}
+                  target="_blank"
+                  rel="noreferrer"
                   className="inline-flex items-center gap-2 rounded-md bg-[#1145d8] px-4 py-3 text-sm font-semibold text-white transition duration-200 hover:-translate-y-0.5 hover:bg-[#0d35aa]"
                 >
                   <span className="inline-flex h-5 w-5 items-center justify-center rounded-sm bg-white text-xs font-bold text-[#1145d8]">

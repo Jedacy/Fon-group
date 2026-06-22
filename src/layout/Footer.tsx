@@ -1,4 +1,4 @@
-import { ArrowUp, Camera, CirclePlay, ExternalLink } from "lucide-react";
+import { ArrowUp, BriefcaseBusiness, Camera, ExternalLink } from "lucide-react";
 import { Link } from "react-router-dom";
 import logo from "../assets/optimized/Logo.webp";
 
@@ -86,18 +86,22 @@ function Footer() {
 
           <div className="flex items-start gap-3 lg:justify-end">
             <a
-              href="#media"
+              href="https://www.instagram.com/thefongroup?igsh=MWJkdGgzdzBiZTFlaA=="
+              target="_blank"
+              rel="noreferrer"
               className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-white/10 text-xs font-semibold text-white/80 transition duration-200 hover:bg-white hover:text-[#12151a]"
               aria-label="Instagram"
             >
               <Camera aria-hidden="true" size={18} />
             </a>
             <a
-              href="#media"
+              href="https://www.linkedin.com/company/thefongroup/posts/?feedView=all"
+              target="_blank"
+              rel="noreferrer"
               className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-white/10 text-xs font-semibold text-white/80 transition duration-200 hover:bg-white hover:text-[#12151a]"
-              aria-label="YouTube"
+              aria-label="LinkedIn"
             >
-              <CirclePlay aria-hidden="true" size={18} />
+              <BriefcaseBusiness aria-hidden="true" size={18} />
             </a>
           </div>
         </div>

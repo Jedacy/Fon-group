@@ -54,14 +54,18 @@ function TeamSections() {
                   />
                 </Link>
                 <div className="absolute right-4 top-4 grid gap-3">
-                  <a
-                    href="#"
-                    onClick={(event) => event.stopPropagation()}
-                    className="inline-flex h-9 w-9 items-center justify-center rounded-full bg-white/85 text-xs font-bold text-blue-600 shadow-sm transition duration-200 hover:-translate-y-0.5 hover:bg-white"
-                    aria-label={`${member.name} LinkedIn`}
-                  >
-                    in
-                  </a>
+                  {member.linkedInUrl ? (
+                    <a
+                      href={member.linkedInUrl}
+                      target="_blank"
+                      rel="noreferrer"
+                      onClick={(event) => event.stopPropagation()}
+                      className="inline-flex h-9 w-9 items-center justify-center rounded-full bg-white/85 text-xs font-bold text-blue-600 shadow-sm transition duration-200 hover:-translate-y-0.5 hover:bg-white"
+                      aria-label={`${member.name} LinkedIn`}
+                    >
+                      in
+                    </a>
+                  ) : null}
                   <a
                     href="#"
                     onClick={(event) => event.stopPropagation()}

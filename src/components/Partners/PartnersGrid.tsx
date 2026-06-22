@@ -148,7 +148,7 @@ function PartnersGrid() {
                     viewport={{ once: true, amount: 0.35 }}
                     transition={{ duration: 0.42, delay: index * 0.035, ease: [0.16, 1, 0.3, 1] }}
                     aria-label={`Visit ${partner.name} website`}
-                    className="group relative flex h-34 items-center justify-center rounded-2xl border border-slate-200/80 bg-white px-6 shadow-[0_12px_32px_rgba(15,23,42,0.04)] transition duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] hover:-translate-y-1 hover:border-[#003246]/25 hover:shadow-[0_22px_55px_rgba(15,23,42,0.09)] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#003246] focus-visible:ring-offset-4"
+                    className="group relative flex h-34 items-center justify-center rounded-2xl border border-slate-200/80 bg-white px-6 shadow-[0_12px_32px_rgba(15,23,42,0.04)] transition duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] hover:-translate-y-1 hover:border-[#003246]/25 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#003246] focus-visible:ring-offset-4"
                   >
                     <span className="absolute right-3 top-3 flex h-7 w-7 items-center justify-center rounded-full bg-slate-100 text-slate-400 opacity-0 transition duration-300 group-hover:opacity-100 group-hover:text-[#003246] group-focus-visible:opacity-100 group-focus-visible:text-[#003246]">
                       <ExternalLink aria-hidden="true" size={13} strokeWidth={1.9} />

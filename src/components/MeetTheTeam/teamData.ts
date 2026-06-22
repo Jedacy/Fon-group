@@ -14,6 +14,7 @@ export type TeamMember = {
   image: string;
   hasEmail?: boolean;
   hasLinkedIn?: boolean;
+  linkedInUrl?: string;
   biography: string[];
 };
 
@@ -55,6 +56,7 @@ export const teamMembers: TeamMember[] = [
     image: emmanuelImage,
     hasEmail: true,
     hasLinkedIn: true,
+    linkedInUrl: "https://www.linkedin.com/in/emmanueloseintim/",
     biography: [
       "Emmanuel Osei Ntim is a business executive and operations leader serving as General Manager of FON Packaging Ventures, The FON Group's corrugated packaging subsidiary.",
       "With over a decade of leadership experience within the business, he oversees all aspects of the company's operations, including manufacturing, sales, customer relationships, sourcing, and financial management. His hands-on leadership style and deep expertise in corrugated packaging, paper manufacturing, and supply chain management have been instrumental in strengthening the company's operational performance and growth.",
@@ -71,6 +73,7 @@ export const teamMembers: TeamMember[] = [
     image: frederickImage,
     hasEmail: true,
     hasLinkedIn: true,
+    linkedInUrl: "https://www.linkedin.com/in/frederick-osafo-ntim/",
     biography: [
       "Frederick Osafo Ntim Jnr. is a business executive and operations leader serving as General Manager of FONSTAT Limited, The FON Group's printing and light packaging subsidiary.",
       "With close to a decade of leadership experience within the business, he oversees all aspects of FONSTAT's operations, including production, sales, financial management, and day-to-day administration. He has developed strong expertise in printing and paper-based packaging solutions, playing a key role in expanding the company beyond traditional printing into packaging products such as paper bags, kraft food boxes, and other consumer packaging solutions.",
@@ -87,6 +90,7 @@ export const teamMembers: TeamMember[] = [
     image: williamImage,
     hasEmail: true,
     hasLinkedIn: true,
+    linkedInUrl: "https://www.linkedin.com/in/william-ntim/",
     biography: [
       "William Boateng Ntim is a business executive and operations leader serving as General Manager at FON Limited, where he oversees manufacturing operations and product development within the Group's tissue and paper converting business.",
       "He leads factory operations, supervising production, machinery performance, and day-to-day manufacturing activities, while working closely with suppliers and technical partners to optimize operational efficiency. William has been instrumental in driving product innovation and diversification within the company's tissue portfolio, leading the rollout of new product formats, packaging configurations, and expanded product offerings aligned with changing retail and consumer trends.",
@@ -104,6 +108,7 @@ export const teamMembers: TeamMember[] = [
     image: samuelImage,
     hasEmail: true,
     hasLinkedIn: true,
+    linkedInUrl: "http://www.linkedin.com/in/samuel-amponsah-ntim",
     biography: [
       "Samuel Amponsah Ntim is a business executive and entrepreneur serving as General Manager of FON Limited, where he oversees commercial operations within The FON Group's tissue and paper converting business.",
       "His responsibilities include sales, customer relationship management, accounts coordination, and finished goods inventory management. He works closely with clients across sectors including corporate institutions, banking, manufacturing, healthcare, hospitality, and retail, playing a key role in expanding the company's commercial reach and customer relationships.",
