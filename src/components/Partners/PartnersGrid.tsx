@@ -62,7 +62,6 @@ const partnerGroups = [
       { name: "FIRN", image: firnLogo, href: "https://www.firn.org" },
       { name: "Plastylenia", image: plastyleniaLogo, href: "https://www.plastylenia.it" },
       { name: "HTI", image: htiLogo, href: "http://hitechinks.co.za" },
-      { name: "Esswell", image: esswellLogo, href: "https://www.esswell.se" },
     ],
   },
   {
@@ -73,6 +72,7 @@ const partnerGroups = [
       { name: "Belimpex", image: belimpexLogo, href: "https://belimpex.ng" },
       { name: "Elof Hansson", image: elofHanssonLogo, href: "https://www.elofhansson.com" },
       { name: "Glopaca", image: group153Logo, href: "https://glopaca.com" },
+      { name: "Esswell", image: esswellLogo, href: "https://www.esswell.se" },
     ],
   },
 ];
@@ -107,7 +107,7 @@ function PartnersGrid() {
             <h2 className="font-heading text-center mt-4 max-w-3xl text-4xl font-semibold leading-tight text-[#172235] sm:text-5xl">
               Global Partners
             </h2> */}
-            <p className="max-w-3xl text-center text-sm leading-7 text-slate-600 sm:text-base">
+            <p className="max-w-3xl text-center text-base leading-7 text-slate-600">
               FON Group works with an international network of paper, packaging, machinery, and industrial supply
               partners to strengthen production quality and keep our manufacturing ecosystem moving.
             </p>
@@ -133,7 +133,7 @@ function PartnersGrid() {
                   </p>
                   <h3 className="font-heading mt-2 text-2xl font-semibold text-[#172235]">{group.category}</h3>
                 </div>
-                <p className="max-w-xl text-sm leading-6 text-slate-500">{group.description}</p>
+                <p className="max-w-xl text-base leading-7 text-slate-500">{group.description}</p>
               </div>
 
               <div className="mt-7 grid gap-4 sm:grid-cols-2 xl:grid-cols-4">

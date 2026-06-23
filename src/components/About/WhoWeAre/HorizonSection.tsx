@@ -44,7 +44,7 @@ function HorizonSection() {
                 <BadgeCheck aria-hidden="true" className="mt-1 shrink-0 text-cyan-200/55" size={18} />
                 <div>
                   <h3 className="font-heading text-lg font-bold leading-6">{item.title}</h3>
-                  <p className="mt-5 text-sm leading-7 text-cyan-100/45">{item.copy}</p>
+                  <p className="mt-5 text-base leading-7 text-cyan-100/45">{item.copy}</p>
                 </div>
               </div>
             </article>

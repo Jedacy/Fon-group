@@ -100,7 +100,7 @@ function CompanyGrid() {
 
               <div className="mt-6">
                 <p className="text-sm font-bold text-slate-950">About</p>
-                <p className="mt-4 max-w-xl text-sm leading-6 text-slate-500">{company.description}</p>
+                <p className="mt-4 max-w-xl text-base leading-7 text-slate-500">{company.description}</p>
               </div>
 
               <div className="mt-8 h-px w-full bg-slate-200" />

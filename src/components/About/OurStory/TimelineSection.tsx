@@ -173,7 +173,7 @@ function TimelineSection() {
                     <h2 className="font-heading mt-7 max-w-xl text-2xl font-medium leading-tight text-slate-500 sm:text-3xl">
                       {item.title}
                     </h2>
-                    <p className="mt-7 max-w-xl text-sm leading-6 text-slate-500">{item.copy}</p>
+                    <p className="mt-7 max-w-xl text-base leading-7 text-slate-500">{item.copy}</p>
                   </div>
                 </article>
               );

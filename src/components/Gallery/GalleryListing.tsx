@@ -33,6 +33,13 @@ const mediaItems: MediaItem[] = [
     youtubeId: "rEE6m0dPZCs",
   },
   {
+    id: "fon-group-company-feature",
+    source: "The FON Group",
+    date: "Company media",
+    title: "FON Group company feature",
+    youtubeId: "xnJU6rri79g",
+  },
+  {
     id: "fon-group-business-feature",
     source: "The FON Group",
     date: "Company media",
@@ -238,7 +245,7 @@ function GalleryListing() {
                     {featured.title}
                   </h1>
                 </div>
-                <p className="mt-auto pt-12 text-sm font-semibold text-slate-600">
+                <p className="mt-auto pt-12 text-base font-semibold leading-7 text-slate-600">
                   by. <span className="border-b border-slate-600">{featured.source}</span>
                 </p>
               </div>

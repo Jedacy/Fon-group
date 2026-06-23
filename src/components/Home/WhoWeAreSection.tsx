@@ -211,11 +211,11 @@ function WhoWeAreSection() {
           <h2 className="font-heading mt-4 max-w-xl text-4xl font-semibold leading-tigh text-[#08063d] sm:text-5xl">
             Creating Values for our customers
           </h2>
-          <p className="mt-7 max-w-xl text-sm leading-6 text-slate-500">
+          <p className="mt-7 max-w-xl text-base leading-7 text-slate-500">
             THE FON GROUP is an indigenous Ghanaian owned Paper Converting and Trading group with 30 years of
             experience in the paper industry.
           </p>
-          <p className="mt-5 max-w-xl text-sm leading-6 text-slate-500">
+          <p className="mt-5 max-w-xl text-base leading-7 text-slate-500">
             Our mission to be the example of a pioneering manufacturing group in Africa that demystifies the falsehood
             of Manufacturing being pioneered only by the people of the West.
           </p>

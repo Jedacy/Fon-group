@@ -26,7 +26,7 @@ function MissionSection() {
                 <Zap aria-hidden="true" size={16} />
                 <h3 className="font-heading text-base font-bold">Catalyst for Change</h3>
               </div>
-              <p className="mt-5 text-sm leading-7 text-slate-500">
+              <p className="mt-5 text-base leading-7 text-slate-500">
                 We aim to motivate fellow Ghanaian and West-African industries to impose quality and innovation as the
                 main foundation of success.
               </p>
@@ -37,7 +37,7 @@ function MissionSection() {
                 <CircleDot aria-hidden="true" size={16} />
                 <h3 className="font-heading text-base font-bold">The Foundation</h3>
               </div>
-              <p className="mt-5 text-sm leading-7 text-slate-500">
+              <p className="mt-5 text-base leading-7 text-slate-500">
                 Our focus is on the principle that enhanced performance leads directly to increased productivity and
                 widespread economic benefits.
               </p>

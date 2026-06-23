@@ -1,16 +1,54 @@
+import { useMemo, useState } from "react";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import { newsItems } from "../News/newsData";
 import SectionContainer from "../shared/SectionContainer";
 
+const previewItems = newsItems;
+
 function NewsSection() {
-  const previewItems = newsItems.slice(0, 5);
+  const visibleCount = Math.min(5, previewItems.length);
+  const [activeIndex, setActiveIndex] = useState(0);
+  const visibleItems = useMemo(
+    () =>
+      Array.from({ length: visibleCount }, (_, offset) => previewItems[(activeIndex + offset) % previewItems.length]),
+    [activeIndex, visibleCount],
+  );
+
+  const showPrevious = () => {
+    setActiveIndex((currentIndex) => (currentIndex - 1 + previewItems.length) % previewItems.length);
+  };
+
+  const showNext = () => {
+    setActiveIndex((currentIndex) => (currentIndex + 1) % previewItems.length);
+  };
 
   return (
     <section id="news" className="bg-[#003246] py-24 text-white sm:py-28">
       <SectionContainer>
-        <h2 className="font-heading text-center text-4xl font-medium sm:text-5xl">News</h2>
+        <div className="flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
+          <h2 className="font-heading text-center text-4xl font-medium sm:text-left sm:text-5xl">News</h2>
+          <div className="flex justify-center gap-3 sm:justify-end">
+            <button
+              type="button"
+              onClick={showPrevious}
+              className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-white/20 text-white/80 transition duration-200 hover:border-white/40 hover:bg-white hover:text-[#003246] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#f1c400]"
+              aria-label="Show previous news items"
+            >
+              <ChevronLeft aria-hidden="true" size={18} />
+            </button>
+            <button
+              type="button"
+              onClick={showNext}
+              className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-white/20 text-white/80 transition duration-200 hover:border-white/40 hover:bg-white hover:text-[#003246] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#f1c400]"
+              aria-label="Show next news items"
+            >
+              <ChevronRight aria-hidden="true" size={18} />
+            </button>
+          </div>
+        </div>
         <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-5">
-          {previewItems.map((card) => (
+          {visibleItems.map((card) => (
             <Link
               key={card.id}
               to={card.href}

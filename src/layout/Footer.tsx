@@ -23,7 +23,13 @@ function Footer() {
     <footer id="contact" className="bg-[#12151a] text-white">
       <div className="mx-auto max-w-7xl px-6 py-14 sm:px-10 lg:px-14">
         <div className="flex flex-col gap-8 sm:flex-row sm:items-center sm:justify-between">
-          <img src={logo} alt="FON Group" className="h-8 w-fit md:h-10" decoding="async" loading="lazy" />
+          <img
+            src={logo}
+            alt="FON Group"
+            className="h-8 w-auto max-w-[160px] object-contain md:h-10"
+            decoding="async"
+            loading="lazy"
+          />
           <Link
             to="/contact"
             className="inline-flex w-fit items-center justify-center rounded-full bg-white px-7 py-3 text-sm font-semibold text-[#1f242b] transition duration-200 hover:bg-slate-100"
@@ -37,7 +43,7 @@ function Footer() {
         <div className="grid gap-10 py-8 sm:grid-cols-2 lg:grid-cols-[1.35fr_1fr_0.65fr_1.5fr_0.35fr]">
           <div>
             <h2 className="text-base font-semibold">Address</h2>
-            <p className="mt-6 max-w-xs text-sm leading-6 text-white/55">
+            <p className="mt-6 max-w-xs text-base leading-7 text-white/55">
               Sales Depot: Paper House, Alajo, Accra, Ghana
               <br />
               Factory: Spintex Road, Accra, Ghana
@@ -73,7 +79,7 @@ function Footer() {
 
           <div>
             <h2 className="text-base font-semibold">Contact us</h2>
-            <p className="mt-6 text-sm leading-6 text-white/55">
+            <p className="mt-6 text-base leading-7 text-white/55">
               +233 302 235 053 (FON LTD)
               <br />
               +233 302 814 812 (FON PACKAGING)

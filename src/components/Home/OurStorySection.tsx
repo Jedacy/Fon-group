@@ -13,11 +13,11 @@ function OurStorySection() {
           <h2 className="font-heading mt-4 max-w-xl text-4xl font-semibold leading-tight text-[#08063d] sm:text-5xl">
             Innovation and Higher Standards
           </h2>
-          <p className="mt-7 max-w-xl text-sm leading-6 text-slate-500">
+          <p className="mt-7 max-w-xl text-base leading-7 text-slate-500">
             We believe innovation is key in today's dynamic manufacturing environment. We are constantly innovating and
             sourcing high quality raw materials in order to provide clients with the best value for money.
           </p>
-          <p className="mt-5 max-w-xl text-sm leading-6 text-slate-500">
+          <p className="mt-5 max-w-xl text-base leading-7 text-slate-500">
             Our values are driven by a simple and direct principle: enhanced performance leads to increased productivity,
             increased productivity speeds up the economic cycle and benefits the private sector and people as a whole.
           </p>

@@ -41,7 +41,7 @@ function GroupCompaniesSection() {
         <h2 className="font-heading mt-4 text-4xl font-semibold leading-tight text-[#1f2b3f] sm:text-5xl">
           Our Group of Companies
         </h2>
-        <p className="mx-auto mt-5 max-w-xl text-sm leading-6 text-slate-500">
+        <p className="mx-auto mt-5 max-w-xl text-base leading-7 text-slate-500">
           Innovation-driven practices across our diverse group of pioneering Ghanaian industries.
         </p>
         <img
@@ -59,7 +59,7 @@ function GroupCompaniesSection() {
               prefersReducedMotion
                 ? undefined
                 : {
-                    duration: 6.5,
+                    duration: 4.33,
                     ease: "easeInOut",
                     repeat: Infinity,
                   }

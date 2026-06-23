@@ -183,7 +183,7 @@ function NewsDetailArticle({ article }: { article: NewsItem | undefined }) {
                   </p>
                   <h2 className="font-heading mt-1 text-base font-bold text-slate-950">{article.author}</h2>
                   <p className="text-sm text-slate-500">{article.authorRole}</p>
-                  <p className="mt-3 max-w-xl text-sm leading-6 text-slate-500">{article.authorBio}</p>
+                  <p className="mt-3 max-w-xl text-base leading-7 text-slate-500">{article.authorBio}</p>
                 </div>
               </div>
 
