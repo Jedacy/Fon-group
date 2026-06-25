@@ -77,7 +77,7 @@ const properties: OasisProperty[] = [
     title: "Oasis Lodge",
     cardTitle: "Oasis Lodge",
     location: "West Airport Residential Area",
-    cardLocation: "N Airport Residential Area",
+    cardLocation: "W Airport Residential Area",
     beds: "2 - 4 Beds",
     description: [
       "Oasis Lodge is the epitome of luxury and privacy comprising eight fully furnished flats located at the luxurious Airport Residential area, Accra.",
@@ -99,8 +99,8 @@ const properties: OasisProperty[] = [
     cta: {
       type: "links",
       links: [
-        { label: "Visit website", href: "#", variant: "gold", icon: "website" },
-        { label: "Book with airbnb", href: "#", variant: "pink", icon: "airbnb" },
+        { label: "Visit website", href: "https://www.oasislodge.com", variant: "gold", icon: "website" },
+        { label: "Book with airbnb", href: "https://www.airbnb.com/rooms/1360207580620670230?unique_share_id=c0fdd5ff-c152-4796-aad8-a7b53e339ec5&viralityEntryPoint=1&s=76&source_impression_id=p3_1775728168_P3lKKsf325EoR-dD", variant: "pink", icon: "airbnb" },
       ],
     },
   },
@@ -289,6 +289,8 @@ function PropertyActions({ cta }: { cta: PropertyCta }) {
             <a
               key={link.label}
               href={link.href}
+              target="_blank"
+              rel="noopener noreferrer"
               className={`inline-flex items-center gap-3 rounded-xl px-7 py-4 text-base font-semibold text-white transition duration-300 hover:-translate-y-0.5 ${
                 isGold ? "bg-[#d18600] hover:bg-[#b97600]" : isPink ? "bg-[#ff385c] hover:bg-[#e52f50]" : "bg-[#0e1117] hover:bg-[#20242c]"
               }`}
