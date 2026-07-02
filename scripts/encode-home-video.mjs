@@ -3,7 +3,7 @@ import { mkdir, rm, writeFile } from "node:fs/promises";
 import { dirname, resolve } from "node:path";
 import ffmpegPath from "ffmpeg-static";
 
-const source = resolve("src/assets/HomeVideo.mp4");
+const source = resolve("public/FON Video.mp4");
 const outputDir = resolve("public/media/home-video");
 
 const variants = [
