@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "tsc -b && vite build",
+    "build": "tsc -b && vite build && node scripts/remove-build-source-video.mjs",
     "lint": "eslint .",
     "analyze:build": "tsc -b && vite build --mode analyze",
     "encode:home-video": "node scripts/encode-home-video.mjs",
