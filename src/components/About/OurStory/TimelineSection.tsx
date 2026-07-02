@@ -75,10 +75,12 @@ function TimelineImage({
   images,
   imageIndex,
   alt,
+  transitionDelayMs,
 }: {
   images: string[];
   imageIndex: number;
   alt: string;
+  transitionDelayMs: number;
 }) {
   const activePosition = imageIndex % images.length;
 
@@ -94,13 +96,14 @@ function TimelineImage({
             src={image}
             alt={isActive ? alt : ""}
             aria-hidden={!isActive}
-            className={`absolute inset-0 h-full w-full object-cover transition-[opacity,transform] duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] motion-reduce:transition-opacity ${
+            className={`absolute inset-0 h-full w-full object-cover transition-transform duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] motion-reduce:transition-none ${
               isActive
-                ? "z-10 translate-x-0 opacity-100"
+                ? "z-20 translate-x-0"
                 : isPrevious
-                  ? "z-0 -translate-x-8 opacity-0"
-                  : "z-0 translate-x-8 opacity-0"
-            } motion-reduce:translate-x-0`}
+                  ? "z-10 -translate-x-full"
+                  : "z-10 translate-x-full"
+            }`}
+            style={{ transitionDelay: `${transitionDelayMs}ms` }}
             decoding="async"
             loading="lazy"
           />
@@ -153,7 +156,7 @@ function TimelineSection() {
           <div className="absolute left-1/2 top-0 hidden h-full w-px -translate-x-1/2 bg-slate-400 lg:block" />
 
           <div className="grid gap-14">
-            {timelineItems.map((item) => {
+            {timelineItems.map((item, itemIndex) => {
               return (
                 <article key={item.year} className="relative grid gap-8 lg:grid-cols-[1fr_96px_1fr] lg:items-start">
                   <div className="lg:pr-10">
@@ -161,6 +164,7 @@ function TimelineSection() {
                       images={item.images}
                       imageIndex={imageIndex}
                       alt={`${item.year} FON Group history`}
+                      transitionDelayMs={itemIndex * 140}
                     />
                   </div>
 

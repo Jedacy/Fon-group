@@ -1,4 +1,4 @@
-import { useRef, useState, useSyncExternalStore } from "react";
+import { useEffect, useRef, useState, useSyncExternalStore } from "react";
 import { ChevronDown } from "lucide-react";
 import { Link, NavLink, useLocation } from "react-router-dom";
 import logo from "../assets/optimized/Logo.webp";
@@ -50,6 +50,7 @@ function getServerScrollSnapshot() {
 function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
+  const [isImmersive, setIsImmersive] = useState(false);
   const dropdownCloseTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
   const location = useLocation();
   const isHomePage = location.pathname === "/";
@@ -57,7 +58,49 @@ function Navbar() {
   const hero = isHomePage ? document.getElementById("home") : null;
   const heroThreshold = hero ? hero.offsetHeight - 80 : window.innerHeight - 80;
   const isPastHero = isHomePage && scrollY > Math.max(heroThreshold, 80);
-  const isSolid = !isHomePage || isPastHero || menuOpen;
+  const isImmersiveNav = isHomePage && isImmersive;
+  const isSolid = !isHomePage || (isPastHero && !isImmersiveNav) || (menuOpen && !isImmersiveNav);
+
+  useEffect(() => {
+    if (!isHomePage) {
+      return;
+    }
+
+    let animationFrame = 0;
+
+    const updateImmersiveState = () => {
+      window.cancelAnimationFrame(animationFrame);
+      animationFrame = window.requestAnimationFrame(() => {
+        const mediaSection = document.getElementById("media");
+
+        if (!mediaSection) {
+          setIsImmersive(false);
+          return;
+        }
+
+        const navbarOffset = 80;
+        const mediaStart = mediaSection.offsetTop - navbarOffset;
+        const mediaEnd = mediaSection.offsetTop + mediaSection.offsetHeight - navbarOffset;
+        const isOverMedia = window.scrollY >= mediaStart && window.scrollY < mediaEnd;
+
+        setIsImmersive((current) => (current === isOverMedia ? current : isOverMedia));
+      });
+    };
+
+    const observer = new MutationObserver(updateImmersiveState);
+
+    observer.observe(document.body, { childList: true, subtree: true });
+    window.addEventListener("scroll", updateImmersiveState, { passive: true });
+    window.addEventListener("resize", updateImmersiveState);
+    updateImmersiveState();
+
+    return () => {
+      window.cancelAnimationFrame(animationFrame);
+      observer.disconnect();
+      window.removeEventListener("scroll", updateImmersiveState);
+      window.removeEventListener("resize", updateImmersiveState);
+    };
+  }, [isHomePage]);
 
   const closeMenu = () => setMenuOpen(false);
   const clearDropdownCloseTimer = () => {
@@ -82,27 +125,30 @@ function Navbar() {
     setActiveDropdown(null);
   };
 
-  const headerClass = isSolid
-    ? "fixed bg-white text-slate-950 shadow-sm ring-1 ring-slate-200/70"
-    : "absolute bg-transparent text-white";
+  const headerClass = isImmersiveNav
+    ? "fixed bg-slate-950/45 text-white shadow-lg shadow-black/10 backdrop-blur-md"
+    : isSolid
+      ? "fixed bg-white text-slate-950 shadow-sm ring-1 ring-slate-200/70"
+      : "absolute bg-transparent text-white";
 
   const desktopLinkBase =
     "group relative inline-flex items-center gap-1 py-2 transition duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#f1c400]";
-  const desktopLinkTone = isSolid ? "text-slate-700 hover:text-slate-950" : "text-white/75 hover:text-white";
-  const dropdownPanelTone = isSolid
+  const useDarkNav = !isSolid || isImmersiveNav;
+  const desktopLinkTone = useDarkNav ? "text-white/75 hover:text-white" : "text-slate-700 hover:text-slate-950";
+  const dropdownPanelTone = !useDarkNav
     ? "bg-white text-slate-700 shadow-xl ring-1 ring-slate-200"
     : "bg-[#0e1116]/95 text-white/80 shadow-xl ring-1 ring-white/10 backdrop-blur";
-  const mobilePanelTone = isSolid
+  const mobilePanelTone = !useDarkNav
     ? "border-slate-200 bg-white text-slate-800"
     : "border-white/10 bg-[#0e1116] text-white/85";
-  const mobileHoverTone = isSolid ? "hover:bg-slate-100 hover:text-slate-950" : "hover:bg-white/8 hover:text-white";
+  const mobileHoverTone = useDarkNav ? "hover:bg-white/8 hover:text-white" : "hover:bg-slate-100 hover:text-slate-950";
 
   return (
     <header className={`left-0 top-0 z-50 w-full transition-all duration-300 ${headerClass}`}>
       <nav className="mx-auto flex h-20 max-w-7xl items-center justify-between px-6 sm:px-10 lg:px-14">
         <Link to="/" className="inline-flex items-center" aria-label="FON Group home">
           <img
-            src={isSolid ? solidLogo : logo}
+            src={useDarkNav ? logo : solidLogo}
             alt="FON Group"
             className="h-9 w-auto md:h-8"
             decoding="async"
@@ -134,7 +180,7 @@ function Navbar() {
                     strokeWidth={2.25}
                     className={`transition duration-200 ${
                       activeDropdown === link.label ? "rotate-180" : ""
-                    } ${isSolid ? "text-slate-500" : "text-white/45"}`}
+                    } ${useDarkNav ? "text-white/45" : "text-slate-500"}`}
                   />
                 ) : null}
                 <span className="absolute -bottom-1 left-0 h-0.5 w-0 bg-[#f1c400] transition-all duration-200 group-hover:w-full" />
@@ -158,7 +204,7 @@ function Navbar() {
                       }}
                       className={({ isActive }) =>
                         `block px-4 py-2.5 text-sm transition duration-200 ${
-                          isSolid ? "hover:bg-slate-100 hover:text-slate-950" : "hover:bg-white/10 hover:text-white"
+                          useDarkNav ? "hover:bg-white/10 hover:text-white" : "hover:bg-slate-100 hover:text-slate-950"
                         } ${isActive ? "font-semibold text-[#f1c400]" : ""}`
                       }
                     >
@@ -174,7 +220,7 @@ function Navbar() {
         <button
           type="button"
           className={`inline-flex h-10 w-10 items-center justify-center rounded-full border transition duration-200 md:hidden ${
-            isSolid ? "border-slate-300 text-slate-900 hover:bg-slate-100" : "border-white/15 text-white hover:bg-white/10"
+            useDarkNav ? "border-white/15 text-white hover:bg-white/10" : "border-slate-300 text-slate-900 hover:bg-slate-100"
           }`}
           aria-label="Toggle navigation menu"
           aria-expanded={menuOpen}
@@ -212,20 +258,20 @@ function Navbar() {
                     aria-hidden="true"
                     size={14}
                     strokeWidth={2.25}
-                    className={isSolid ? "text-slate-400" : "text-white/40"}
+                    className={useDarkNav ? "text-white/40" : "text-slate-400"}
                   />
                 ) : null}
               </NavLink>
 
               {link.dropdown ? (
-                <div className={`ml-3 grid gap-1 border-l pl-3 ${isSolid ? "border-slate-200" : "border-white/10"}`}>
+                <div className={`ml-3 grid gap-1 border-l pl-3 ${useDarkNav ? "border-white/10" : "border-slate-200"}`}>
                   {link.dropdown.map((item) => (
                     <NavLink
                       key={item.to}
                       to={item.to}
                       className={({ isActive }) =>
                         `rounded-md px-2 py-2 text-sm transition duration-200 ${mobileHoverTone} ${
-                          isActive ? "font-semibold text-[#f1c400]" : isSolid ? "text-slate-600" : "text-white/65"
+                          isActive ? "font-semibold text-[#f1c400]" : useDarkNav ? "text-white/65" : "text-slate-600"
                         }`
                       }
                       onClick={closeMenu}
